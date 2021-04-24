@@ -38,6 +38,28 @@ app.voucher_url= url to request
 app.voucher_apikey= apikey that will be used on the voucher request
 ```
 
+## Sample Request
+```
+Parameter definition are as follows:
+weight  -> not required; if not specified, volume(lwh) will be used
+height  -> not required; if not specified, weight will be computed
+width   -> not required; if not specified, weight will be computed
+length  -> not required; if not specified, weight will be computed
+voucher -> not required
+  
+Please keep in mind that the API will not return any value if the parameters are not supplied correctly. It will also check if the Voucher used is not Expired.
+  Sample Request:
+  {url}/cost-delivery/parcel?weight=2&height=34&length=23&width=23 
+```
+
+## Sample Response
+```
+The response body is composed of 
+price           -> the total price
+usedVoucher     -> voucher that was used
+discountedPrice -> price minus the amount availed from the voucer(if valid)
+isReject        -> returns of the parcel is rejected or not
+```
 ## Deployment
 
 Run this command to create a jar file with all its dependencies
